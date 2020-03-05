@@ -1,0 +1,10 @@
+/dist
+/jspm_packages
+/node_modules
+/temp
+.DS_Store
+.npm
+.eslintcache
+.node_repl_history
+.swp
+.yarn-integrity

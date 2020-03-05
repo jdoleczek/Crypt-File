@@ -1,0 +1,52 @@
+@import '../common/styles.scss';
+
+section {
+  .summary {
+    background: #049;
+    color: #fff;
+    line-height: 26px;
+    padding: 4px 14px;
+
+    a {
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+
+  .btn {
+    position: relative;
+    background: #049;
+    color: #fff;
+    padding: 1px 4px;
+    height: 54px;
+    font-size: 22px;
+    line-height: 54px;
+    text-align: center;
+    font-weight: bold;
+
+    input[type=file] {
+      display: block;
+      position: absolute;
+      @extend .zero;
+      width: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+}
+
+#dnd {
+  position: absolute;
+  @extend .zero;
+  background: rgba(111, 111, 111, 0.6);
+  display: none;
+
+  &>div {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 20px;
+    right: 20px;
+    border: dashed 2px #eee;
+  }
+}

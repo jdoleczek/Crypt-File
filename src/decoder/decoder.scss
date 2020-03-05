@@ -1,0 +1,15 @@
+@import '../common/styles.scss';
+
+section {
+  .blue-bar {
+    background: #049;
+    color: #fff;
+    line-height: 26px;
+    padding: 4px 14px;
+    text-align: center;
+
+    a {
+      color: #fff;
+    }
+  }
+}
