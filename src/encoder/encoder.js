@@ -56,3 +56,7 @@ dragDrop(body, {
   onDragOver: () => dnd.style.display = 'block',
   onDragLeave: () => dnd.style.display = 'none'
 })
+
+module.exports = {
+  handleFiles,
+}

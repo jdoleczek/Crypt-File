@@ -6,7 +6,7 @@
   "scripts": {
     "build": "gulp build",
     "clean": "gulp clean",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage ./tests"
   },
   "author": "Jan Doleczek <jan@doleczek.pl>",
   "license": "MIT",
@@ -21,6 +21,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",
+    "jest": "^25.1.0",
     "node-sass": "^4.13.1"
   },
   "dependencies": {
