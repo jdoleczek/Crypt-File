@@ -40,3 +40,7 @@ password.onkeydown = function(ev) {
     getFile()
   }
 }
+
+module.exports = {
+  getFile,
+}

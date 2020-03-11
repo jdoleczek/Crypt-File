@@ -35,7 +35,7 @@ jest.mock('file-saver', function () {
   }
 })
 
-describe('button', function () {
+describe('encoder', function () {
   beforeEach(() => {
     document.documentElement.innerHTML = html.toString()
   });
@@ -45,9 +45,9 @@ describe('button', function () {
   })
 
   it('handleFiles test', function () {
-    const fooSpy = jest.spyOn(fileSaver, 'saveAs')
+    const fileSaverSaveAs = jest.spyOn(fileSaver, 'saveAs')
     let encoder = require('../src/encoder/encoder.js')
     encoder.handleFiles([new MockFile()])
-    expect(fooSpy).toHaveBeenCalled();
+    expect(fileSaverSaveAs).toHaveBeenCalled()
   })
 })

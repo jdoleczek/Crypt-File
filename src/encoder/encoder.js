@@ -52,7 +52,6 @@ document.querySelectorAll('input[type=file]')[0].addEventListener('change', func
 
 dragDrop(body, {
   onDrop: files => handleFiles(files),
-  onDragEnter: () => {},
   onDragOver: () => dnd.style.display = 'block',
   onDragLeave: () => dnd.style.display = 'none'
 })
