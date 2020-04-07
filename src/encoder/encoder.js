@@ -13,6 +13,22 @@ function crypt(bytes, key) {
   return aesCtr.encrypt(bytes)
 }
 
+function uint8ToBase64(u8Arr) {
+  let CHUNK_SIZE = 0x8000
+  let index = 0
+  let length = u8Arr.length
+  let result = []
+  let slice
+
+  while (index < length) {
+    slice = u8Arr.subarray(index, Math.min(index + CHUNK_SIZE, length))
+    result.push(String.fromCharCode.apply(null, slice))
+    index += CHUNK_SIZE;
+  }
+
+  return btoa(result.join(''))
+}
+
 function handleFiles(files) {
   let key = aesjs.utils.utf8.toBytes(
     (password.value + ref).substr(0, 32)
@@ -26,7 +42,7 @@ function handleFiles(files) {
 
     fileReader.addEventListener('load', ev => {
       let encryptedBytes = crypt(new Uint8Array(ev.target.result), key)
-      let b64 = btoa(String.fromCharCode.apply(null, encryptedBytes))
+      let b64 = uint8ToBase64(encryptedBytes)
 
       let encryptedFileNameBytes = crypt(aesjs.utils.utf8.toBytes(file.name), key)
       let encryptedFileNameHex = aesjs.utils.hex.fromBytes(encryptedFileNameBytes)
