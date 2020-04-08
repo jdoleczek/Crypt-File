@@ -88,7 +88,11 @@ describe('decoder', function () {
     let decoder = require('../src/decoder/decoder.js')
 
     expect(
-      () => document.querySelectorAll('input[type=password]')[0].onkeydown({which: 13})
+      () => {
+        jest.useFakeTimers();
+        document.querySelectorAll('input[type=password]')[0].onkeydown({which: 13})
+        jest.runAllTimers()
+      }
     ).toThrow()
   })
 
@@ -96,7 +100,11 @@ describe('decoder', function () {
     let decoder = require('../src/decoder/decoder.js')
 
     expect(
-      () => document.querySelectorAll('input[type=password]')[0].onkeydown({which: 32})
+      () => {
+        jest.useFakeTimers();
+        document.querySelectorAll('input[type=password]')[0].onkeydown({which: 32})
+        jest.runAllTimers()
+      }
     ).not.toThrow()
   })
 })
