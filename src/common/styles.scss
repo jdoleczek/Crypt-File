@@ -99,6 +99,51 @@ section {
     }
   }
 
+  #waiting {
+    position: absolute;
+    top: 1px;
+    bottom: 1px;
+    left: 1px;
+    right: 1px;
+    background: #fff;
+    display: none;
+
+    div {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    & > div {
+      width: 120px;
+      height: 120px;
+      border-radius: 100px;
+      border: solid 7px #222;
+      top: 60px;
+
+      .short, .long {
+        width: 4px;
+        background: #333;
+        border-radius: 3px;
+        border: solid 2px #333;
+      }
+
+      .short {
+        height: 40px;
+        top: 20px;
+        transform: rotate(135deg);
+        transform-origin: center 39px;
+      }
+
+      .long {
+        height: 52px;
+        top: 8px;
+        transform-origin: center 51px;
+      }
+    }
+  }
+
   footer {
     font-size: 12px;
     padding: 0 12px 10px;
@@ -116,4 +161,17 @@ section {
       text-align: right;
     }
   }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  animation: rotating 5s linear infinite;
 }

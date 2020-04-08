@@ -7,6 +7,7 @@ let decoderTemplate = '%DECODER%'
 let body = document.getElementsByTagName('body')[0]
 let password = document.querySelectorAll('input[type=password]')[0]
 let dnd = document.getElementById('dnd')
+let waiting = document.getElementById('waiting')
 
 function crypt(bytes, key) {
   let aesCtr = new aesjs.ModeOfOperation.ctr(key)
@@ -30,6 +31,8 @@ function uint8ToBase64(u8Arr) {
 }
 
 function handleFiles(files) {
+  waiting.style.display = 'block'
+
   let key = aesjs.utils.utf8.toBytes(
     (password.value + ref).substr(0, 32)
   )
@@ -54,6 +57,7 @@ function handleFiles(files) {
 
       let blob = new Blob([decoder], {type: 'application/octal-stream'})
       fileSaver.saveAs(blob, file.name + '.html')
+      waiting.style.display = 'none'
     })
 
     fileReader.readAsArrayBuffer(file)

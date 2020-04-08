@@ -3,6 +3,7 @@ let aesjs = require('aes-js')
 
 let ref = 'Created by Jan DOLECZEK A.D.2020'
 let password = document.querySelectorAll('input[type=password]')[0]
+let waiting = document.getElementById('waiting')
 
 function decrypt(bytes, key) {
   let aesCtr = new aesjs.ModeOfOperation.ctr(key)
@@ -19,6 +20,7 @@ function getFile() {
 
   if (decryptedRef != ref) {
     document.body.style.backgroundColor = 'darkred'
+    waiting.style.display = 'none'
     password.value = ''
     return
   } else {
@@ -33,11 +35,13 @@ function getFile() {
 
   let blob = new Blob([decryptedBytes], {type: 'application/octal-stream'})
   fileSaver.saveAs(blob, fileName)
+  waiting.style.display = 'none'
 }
 
 password.onkeydown = function(ev) {
   if (ev.which == 13) {
-    getFile()
+    waiting.style.display = 'block'
+    setTimeout(getFile, 10)
   }
 }
 
