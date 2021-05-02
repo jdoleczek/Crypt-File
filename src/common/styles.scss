@@ -66,6 +66,17 @@ section {
     }
   }
 
+  .key-text {
+    width:300px;
+    font-size:12px;
+    line-height:14px;
+    left:0;
+    right:0;
+    margin: 16px auto 0;
+    color: #888;
+    font-style: italic;
+  }
+
   input[type=password] {
     display:block;
     width:300px;
@@ -74,7 +85,7 @@ section {
     line-height:28px;
     left:0;
     right:0;
-    margin: 20px auto 26px;
+    margin: 0 auto 26px;
     padding:0 6px;
   }
 

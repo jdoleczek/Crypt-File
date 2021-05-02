@@ -1,6 +1,6 @@
 {
   "name": "crypt-file",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Crypt and decrypt files in your browser.",
   "main": "index.js",
   "scripts": {
